@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "why? for n8n",
+  "version": "1.9.0",
+  "description": "Finds n8n runs that report success but produced nothing, drifted out of shape, or invented details that were never in the input.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "why? - scan this n8n page",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "alarms"
+  ],
+  "host_permissions": [
+    "http://localhost:5678/*",
+    "http://127.0.0.1:5678/*",
+    "https://*.app.n8n.cloud/*"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
