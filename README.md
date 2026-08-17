@@ -102,18 +102,21 @@ needed.
 
 ---
 
-## Install
+## Running it from a clone
 
-**From source** (works today):
+The extension files sit at the root of this repository, so a clone loads
+directly with no build step:
 
-1. Download the latest release, or clone this repository
-2. Open `chrome://extensions` and turn on **Developer mode**
-3. **Load unpacked** → select the folder
-4. Open n8n → **Executions** → click the toolbar icon
+```bash
+git clone https://github.com/widjajaanthony24-svg/why-n8n.git
+```
 
-Works unchanged on **Chrome, Edge, Brave, Arc, Opera and Vivaldi** — every API
-it uses is standard Manifest V3. Firefox needs a small compatibility shim (not
-done yet). Safari would need an Xcode conversion.
+Then `chrome://extensions` → **Developer mode** → **Load unpacked** → pick the
+cloned folder.
+
+Every API it uses is standard Manifest V3, so it runs unchanged on Chrome, Edge,
+Brave, Arc, Opera and Vivaldi. Firefox needs a small compatibility shim (not done
+yet). Safari would need an Xcode conversion.
 
 ---
 
