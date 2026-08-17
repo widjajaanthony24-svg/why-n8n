@@ -6,6 +6,22 @@ and, while you're building, tells you what your last change did to the output.**
 A browser extension. No account, no API key, no SDK, no self-hosting. It reads
 the n8n you're already signed into.
 
+## ⬇️  Download
+
+### **[Get the latest release →](https://github.com/widjajaanthony24-svg/why-n8n/releases/latest)**
+
+Then: **unzip it** → open `chrome://extensions` → turn on **Developer mode**
+(top right) → **Load unpacked** → pick the unzipped folder.
+
+Open n8n, go to **Executions**, click the toolbar icon. That's it — nothing to
+sign up for and nothing to configure.
+
+> Chrome Web Store listing is in review. Until it's approved, the release zip
+> above is the way in. Works on Chrome, Edge, Brave, Arc, Opera and Vivaldi.
+
+*Everything below is what it does and how it works. You don't need to read it to
+use it.*
+
 ---
 
 ## The problem
