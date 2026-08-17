@@ -1,0 +1,71 @@
+name: Something is broken
+description: It crashed, showed an error, or didn't do what it says it does.
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please don't paste execution data** — that's your production payloads.
+        Everything here is about what happened, not what was in it.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      placeholder: |
+        Clicked the toolbar icon on the executions list and the panel showed
+        "could not read execution 412".
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: What were you doing?
+      placeholder: |
+        1. Opened n8n at my own domain
+        2. Went to Executions
+        3. Clicked the icon
+    validations:
+      required: true
+
+  - type: textarea
+    id: console
+    attributes:
+      label: Anything in the console?
+      description: >
+        Ctrl+Shift+I opens DevTools (F12 if that key isn't doing something else
+        on your laptop). Console tab, red text. Paste it if there is any.
+      render: shell
+
+  - type: input
+    id: n8n
+    attributes:
+      label: n8n version, and Cloud or self-hosted?
+      placeholder: 2.34.6, n8n Cloud
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Which browser?
+      placeholder: Chrome 140, or Edge, Brave, Arc…
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      placeholder: "1.9.0"
+    validations:
+      required: true

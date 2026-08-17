@@ -1,0 +1,13 @@
+blank_issues_enabled: true
+contact_links:
+  - name: It missed something
+    url: https://github.com/widjajaanthony24-svg/why-n8n/issues/new
+    about: >
+      A silent failure it should have caught and didn't. Open a blank issue and
+      describe what the workflow did versus what the panel said.
+  - name: Security issue
+    url: https://github.com/widjajaanthony24-svg/why-n8n/security/advisories/new
+    about: >
+      Please report privately first. This extension runs inside your n8n
+      session, so anything affecting that deserves a heads-up before it is
+      public.

@@ -1,0 +1,94 @@
+name: It flagged something that was actually fine
+description: The most useful report you can send. Takes about a minute.
+title: "False positive: "
+labels: ["false positive"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you — genuinely. This tool has only ever run against workflows I
+        wrote myself, so a case where it's wrong on *your* setup is worth more
+        to me than a hundred where it's right on mine.
+
+        **Please don't paste execution data.** That's your production payloads,
+        and I don't want it. Everything below is deliberately about the shape of
+        the problem, not its contents. Redact anything that looks like a real
+        customer.
+
+  - type: textarea
+    id: said
+    attributes:
+      label: What did it say?
+      description: Copy the finding text from the panel. Redact names, emails, ids.
+      placeholder: |
+        Enrich Lead · url uses $json.customer.email
+        there is no "customer" in its input
+    validations:
+      required: true
+
+  - type: dropdown
+    id: check
+    attributes:
+      label: Which check was it?
+      options:
+        - A field that wasn't there (broken expression)
+        - Produced nothing
+        - Error inside a 200 response
+        - Items lost mid-run
+        - Output changed shape (drift)
+        - Invented details
+        - Bad context / wrong decision / hallucinated
+        - Compare each run
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why was it actually fine?
+      description: >
+        This is the part that matters. What was the node genuinely doing that
+        made this correct behaviour?
+      placeholder: |
+        The expression is inside a Set node that only runs on the branch where
+        `customer` exists, so it's never evaluated when the field is missing.
+    validations:
+      required: true
+
+  - type: input
+    id: node
+    attributes:
+      label: What node type was involved?
+      description: The type, not the name — e.g. n8n-nodes-base.httpRequest
+      placeholder: n8n-nodes-base.code
+    validations:
+      required: true
+
+  - type: input
+    id: n8n
+    attributes:
+      label: n8n version, and Cloud or self-hosted?
+      placeholder: 2.34.6, self-hosted
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Extension version
+      description: Shown on chrome://extensions
+      placeholder: "1.9.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: shape
+    attributes:
+      label: If you can, the shape of the data (optional)
+      description: >
+        Field names and types are usually enough to reproduce it. Replace every
+        value. This is optional — skip it if there's any doubt.
+      placeholder: |
+        { "customer": null, "order_id": "<string, 8 digits>", "items": [] }
+      render: json
